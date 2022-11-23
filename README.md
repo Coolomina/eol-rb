@@ -15,9 +15,9 @@ If bundler is not being used to manage dependencies, install the gem by executin
 ## Usage
 
 ```ruby
-# Optional configuration
 require 'eol_rb'
 
+# Optional configuration
 EOL.configure do |config|
   config.timeout = 1
   config.open_timeout = 1
