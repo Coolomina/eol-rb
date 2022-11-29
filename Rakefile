@@ -10,7 +10,7 @@ RuboCop::RakeTask.new
 
 task default: %i[spec rubocop]
 
-task :release do |t|
+task :release do
   version = "v#{EOL::VERSION}"
   sh("git tag -a #{version} -m \"Tags #{version}\"")
   sh("git push origin #{version}")
