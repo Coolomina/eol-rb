@@ -1,5 +1,9 @@
 ## [Unreleased]
 
+## [0.4.0] - 2022-11-29
+
+- Adds release mechanism
+
 ## [0.3.0] - 2022-11-29
 
 - Refactors classes names and namespaces
