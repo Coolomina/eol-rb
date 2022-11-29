@@ -32,19 +32,15 @@ module EOL
     end
 
     def products
-      res = Client::Product.all(@client)
-
-      JSON.parse(res.body)
+      Client::Product.all(@client)
     end
 
     def of(product, cycle: "")
-      res = if cycle.empty?
-              Client::Product.get(@client, product)
-            else
-              Client::Cycle.get(@client, product, cycle)
-            end
-
-      JSON.parse(res.body)
+      if cycle.empty?
+        Client::Product.get(@client, product)
+      else
+        Client::Cycle.get(@client, product, cycle)
+      end
     end
   end
 end
