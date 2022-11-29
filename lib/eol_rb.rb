@@ -2,7 +2,7 @@
 
 require_relative "eol_rb/client"
 require_relative "eol_rb/configuration"
-require_relative "eol_rb/product"
+require_relative "eol_rb/products"
 require_relative "eol_rb/cycle"
 
 # Root module for EndOfLife
@@ -32,14 +32,14 @@ module EOL
     end
 
     def products
-      Client::Product.all(@client)
+      Products.all(@client)
     end
 
     def of(product, cycle: "")
       if cycle.empty?
-        Client::Product.get(@client, product)
+        Products.get(@client, product)
       else
-        Client::Cycle.get(@client, product, cycle)
+        Cycle.get(@client, product, cycle)
       end
     end
   end
