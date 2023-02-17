@@ -21,7 +21,9 @@ module EOL
                 "Cycle #{cycle} could not be found under product #{product}. Try any of #{available_cycles.inspect}"
         end
 
-        JSON.parse(res.body)
+        specs = JSON.parse(res.body).merge({ "cycle" => cycle })
+
+        Models::Cycle.new(specs)
       end
     end
   end

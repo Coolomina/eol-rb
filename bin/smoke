@@ -1,0 +1,23 @@
+# frozen_string_literal: true
+
+require "bundler/setup"
+require "eol_rb"
+require "logger"
+
+logger = Logger.new(STDOUT)
+
+EOL.configure do |config|
+  config.timeout = 1
+  config.open_timeout = 1
+end
+
+logger.info "Testing EOL.products..."
+raise "EOL.products broke" if EOL.products.length < 1
+
+logger.info "Testing EOL.info(product)..."
+raise "EOL.info(product) broke" if EOL.info('ruby').length < 1
+
+logger.info "Testing EOL.info(product, cycle:)..."
+raise "EOL.info(product, cycle:) broke" if EOL.info('ruby', cycle: "3.2").class != EOL::Models::Cycle
+
+logger.info "All good!"

@@ -7,8 +7,10 @@ require "json"
 module EOL
   # HTTP client for endoflife.date API
   class Client
-    def initialize
-      @http = Faraday.new(
+    attr_reader :http
+
+    def initialize(http = nil)
+      @http = http || Faraday.new(
         url: "#{api.scheme}://#{api.host}",
         headers: {
           "Content-Type" => "application/json",

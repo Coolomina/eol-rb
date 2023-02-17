@@ -22,3 +22,5 @@ jobs:
         bundler-cache: true
     - name: Run the default task
       run: bundle exec rake
+    - name: Run the smoke suite
+      run: bundle exec ruby bin/smoke

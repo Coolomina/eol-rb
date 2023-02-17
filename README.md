@@ -26,14 +26,27 @@ end
 EOL.products
 # => ["almalinux", "alpine", "amazon-eks", ...
 
-EOL.of('ruby')
+EOL.info('ruby')
 # => 
-# [{"cycle"=>"3.1", "eol"=>"2025-12-25", "latest"=>"3.1.2", "latestReleaseDate"=>"2022-04-12", "releaseDate"=>"2021-12-25"},
-#  {"cycle"=>"3.0", "eol"=>"2024-03-31", "latest"=>"3.0.4", "latestReleaseDate"=>"2022-04-12", "releaseDate"=>"2020-12-25"},
-# ...
+# [#<EOL::Models::Cycle:0x000000010403dd60             
+#  @eol=#<Date: 2026-03-31 ((2461131j,0s,0n),+0s,2299161j)>,
+#  @is_supported=true,                                
+#  @latest=Gem::Version.new("3.2.1"),                 
+#  @latest_release_date=#<Date: 2023-02-08 ((2459984j,0s,0n),+0s,2299161j)>,
+#  @lts=false,                                        
+#  @release_date=#<Date: 2022-12-25 ((2459939j,0s,0n),+0s,2299161j)>,
+#  @version=Gem::Version.new("3.2")>, 
 
-EOL.of('ruby', cycle: '3.1')
-# => {"eol"=>"2025-12-25", "latest"=>"3.1.2", "latestReleaseDate"=>"2022-04-12", "releaseDate"=>"2021-12-25"}
+EOL.info('ruby', cycle: '3.1')
+# => 
+# #<EOL::Models::Cycle:0x0000000104044890
+#  @eol=#<Date: 2025-03-31 ((2460766j,0s,0n),+0s,2299161j)>,
+#  @is_supported=true,
+#  @latest=Gem::Version.new("3.1.3"),
+#  @latest_release_date=#<Date: 2022-11-24 ((2459908j,0s,0n),+0s,2299161j)>,
+#  @lts=false,
+#  @release_date=#<Date: 2021-12-25 ((2459574j,0s,0n),+0s,2299161j)>,
+#  @version=Gem::Version.new("3.1")>
 ```
 
 ## Development

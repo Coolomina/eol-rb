@@ -16,7 +16,7 @@ module EOL
         res = client.get("/#{product}.json")
         raise NotFoundError, "Product #{product} could not be found in the API" if res.status == 404
 
-        JSON.parse(res.body)
+        JSON.parse(res.body).map { |p| Models::Cycle.new(p) }
       end
     end
   end
