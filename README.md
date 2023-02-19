@@ -47,6 +47,9 @@ EOL.info('ruby', cycle: '3.1')
 #  @lts=false,
 #  @release_date=#<Date: 2021-12-25 ((2459574j,0s,0n),+0s,2299161j)>,
 #  @version=Gem::Version.new("3.1")>
+
+EOL.info('ruby', cycle: '2.6').supported?
+# => false
 ```
 
 ## Development
