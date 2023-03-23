@@ -8,4 +8,9 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+  config.before(:each) do
+    @stubs = Faraday::Adapter::Test::Stubs.new
+    @conn = Faraday.new { |b| b.adapter(:test, @stubs) }
+  end
+  config.after { Faraday.default_connection = nil }
 end

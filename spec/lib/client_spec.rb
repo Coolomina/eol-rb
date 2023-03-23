@@ -12,16 +12,10 @@ RSpec.describe EOL::Client do
   end
 
   describe ".get" do
-    let(:stubs) { Faraday::Adapter::Test::Stubs.new }
-    let(:conn) { Faraday.new { |b| b.adapter(:test, stubs) } }
-    let(:client) { described_class.new(conn) }
-
-    after do
-      Faraday.default_connection = nil
-    end
+    let(:client) { described_class.new(@conn) }
 
     it "properly makes calls to the API" do
-      stubs.get("/api/ruby.json") do
+      @stubs.get("/api/ruby.json") do
         [
           200,
           { 'Content-Type': "application/json" },
