@@ -11,10 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Ruby 3.2
+    - name: Set up Ruby 3.0
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: 3.2
+        ruby-version: 3.0
     - name: Publish to RubyGems
       run: |
         mkdir -p $HOME/.gem
