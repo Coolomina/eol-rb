@@ -18,7 +18,7 @@ RSpec.describe EOL::Client do
       @stubs.get("/api/ruby.json") do
         [
           200,
-          { 'Content-Type': "application/json" },
+          { "Content-Type": "application/json" },
           '[{
             "cycle": "3.2",
             "eol": "2026-03-31",
