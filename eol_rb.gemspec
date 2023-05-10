@@ -18,7 +18,8 @@ Gem::Specification.new do |spec|
     "homepage_uri" => spec.homepage,
     "source_code_uri" => spec.homepage,
     "bug_tracker_uri" => "https://github.com/Coolomina/eol-rb/issues",
-    "changelog_uri" => "https://github.com/Coolomina/eol-rb/releases"
+    "changelog_uri" => "https://github.com/Coolomina/eol-rb/releases",
+    "rubygems_mfa_required" => "true"
   }
 
   spec.files         = Dir["lib/**/*", "LICENSE.txt", "README.md", "CHANGELOG.md"]
@@ -29,4 +30,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 13.0"
   spec.add_development_dependency "rspec", "~> 3.12"
   spec.add_development_dependency "rubocop", "~> 1.39"
+  spec.add_development_dependency "rubocop-rake", "~> 0.6.0"
+  spec.add_development_dependency "rubocop-rspec", "~> 2.22"
 end
