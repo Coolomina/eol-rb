@@ -3,8 +3,8 @@
 RSpec.describe EOL::Models::Cycle do
   let(:specs) do
     {
-      out_of_date => {
-        input => {
+      out_of_date: {
+        input: {
           "cycle" => "3.1",
           "eol" => "2021-01-31",
           "latest" => "3.2.1",
@@ -12,7 +12,7 @@ RSpec.describe EOL::Models::Cycle do
           "releaseDate" => "2019-01-01",
           "lts" => false
         },
-        expected => {
+        expected: {
           version: Gem::Version.new("3.1"),
           eol: Date.new(2021, 1, 31),
           latest: Gem::Version.new("3.2.1"),
@@ -21,26 +21,18 @@ RSpec.describe EOL::Models::Cycle do
           lts: false
         }
       },
-      up_to_date => {
-        input => {
+      up_to_date: {
+        input: {
           "cycle" => "3.1",
           "eol" => "3000-01-31",
           "latest" => "3.2.1",
           "latestReleaseDate" => "2020-01-01",
           "releaseDate" => "2019-01-01",
           "lts" => false
-        },
-        output => {
-          version: Gem::Version.new("7.0"),
-          eol: false,
-          latest: Gem::Version.new("7.0.4.3"),
-          latest_release_date: Date.new(2023, 3, 13),
-          release_date: Date.new(2021, 12, 15),
-          lts: false
         }
       },
-      boolean_unsupported => {
-        input => {
+      boolean_unsupported: {
+        input: {
           "cycle" => "5.0",
           "eol" => true,
           "support" => "2018-04-09",
@@ -50,14 +42,22 @@ RSpec.describe EOL::Models::Cycle do
           "lts" => false
         }
       },
-      boolean_supported => {
-        input => {
+      boolean_supported: {
+        input: {
           "cycle" => "7.0",
           "eol" => false,
           "latest" => "7.0.4.3",
           "latestReleaseDate" => "2023-03-13",
           "releaseDate" => "2021-12-15",
           "lts" => false
+        },
+        expected: {
+          version: Gem::Version.new("7.0"),
+          eol: false,
+          latest: Gem::Version.new("7.0.4.3"),
+          latest_release_date: Date.new(2023, 3, 13),
+          release_date: Date.new(2021, 12, 15),
+          lts: false
         }
       }
     }
@@ -72,7 +72,7 @@ RSpec.describe EOL::Models::Cycle do
     context "with a datestring eol" do
       it "returns a Cycle object" do
         expect(cycle_out_of_date).to have_attributes(
-          specs[:out_of_date][:output]
+          specs[:out_of_date][:expected]
         )
       end
     end
@@ -80,7 +80,7 @@ RSpec.describe EOL::Models::Cycle do
     context "with a boolean eol" do
       it "returns a Cycle object" do
         expect(cycle_boolean_supported).to have_attributes(
-          specs[:boolean_supported][:output]
+          specs[:boolean_supported][:expected]
         )
       end
     end
