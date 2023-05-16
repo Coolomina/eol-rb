@@ -19,3 +19,6 @@ Metrics/MethodLength:
 Metrics/BlockLength:
   Exclude:
   - './spec/**/*'
+
+Gemspec/DevelopmentDependencies:
+  EnforcedStyle: gemspec
