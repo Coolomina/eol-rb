@@ -18,8 +18,7 @@ Gem::Specification.new do |spec|
     "homepage_uri" => spec.homepage,
     "source_code_uri" => spec.homepage,
     "bug_tracker_uri" => "https://github.com/Coolomina/eol-rb/issues",
-    "changelog_uri" => "https://github.com/Coolomina/eol-rb/releases",
-    "rubygems_mfa_required" => "true"
+    "changelog_uri" => "https://github.com/Coolomina/eol-rb/releases"
   }
 
   spec.files         = Dir["lib/**/*", "LICENSE.txt", "README.md", "CHANGELOG.md"]

@@ -22,3 +22,6 @@ Metrics/BlockLength:
 
 Gemspec/DevelopmentDependencies:
   EnforcedStyle: gemspec
+
+Gemspec/RequireMFA:
+  Enabled: false
